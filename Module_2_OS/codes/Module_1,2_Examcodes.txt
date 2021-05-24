@@ -1,0 +1,505 @@
+# scripts 
+
+// Prime
+
+echo "Enter the num :"
+
+read num
+flag=0
+key=0
+
+if [ $num -eq 0 ] || [ $num -eq 1 ]
+then
+        echo "enter num other than 0 & 1 "
+fi
+
+for (( i=2;i<=$num/2;i=i+1 ))
+do
+
+        if [ $(( $num % $i ))  -eq  0 ]
+        then
+                echo "$num is not a prime"
+                flag=1
+                key=1
+                break
+        fi
+done
+        if [ $flag -eq 0 ] || [ $key -eq 0 ]
+        then
+                echo "$num is prime"
+        fi
+
+
+================================================================================
+// greater than 3 num
+
+echo "Enter three nums : "
+read a
+read b
+read c
+
+if [ $a -gt $b ]
+then
+        if [ $a -gt $c ]
+        then
+                echo "$a is greater"
+        else
+                echo "$c is greater"
+        fi
+
+else
+        if [ $b -gt $c ]
+        then
+                echo "$b is greater"
+        else
+                echo "$c is greater"
+        fi
+fi
+
+===========================================================================
+// fibo
+
+read num
+
+n=$num
+rev=0
+while [ $num -ne 0 ]
+do
+
+        rem=$((num%10))
+        rev=$(($rev*10+$rem))
+        num=$((num/10))
+done
+        if [ $n -eq $rev ]
+        then
+                echo "$n is palindrome"
+        else
+                echo "$n is not a palindrome"
+        fi
+
+
+
+
+====================================================================
+// fabo
+
+read a
+read b
+i=1
+echo -n " $a "
+echo -n " $b "
+while [ $i -lt 9 ]
+
+do
+        res=$((a+b))
+        a=$b
+        b=$res
+        echo -n " $res "
+        i=$((i+1))
+
+done
+echo " "
+
+========================================================
+// fact
+
+read num
+
+fact=1
+i=1
+
+
+while [ $i -le $num ]
+do
+
+        fact=$((fact * i))
+        i=$((i+0))
+done
+        echo "$fact"                     
+
+=============================================================================
+read num
+
+fact=1
+i=1
+
+
+while [ $i -le $num ]
+do
+
+        fact=$((fact * i))
+        i=$((i+0))
+done
+        echo "$fact"
+~                      
+
+
+
+
+//SWAP1
+
+num1=10
+echo "num2 : $num1"
+num2=20
+echo "num2 : $num2"
+temp=$num1
+
+echo "=========================="
+num1=$num2
+num2=$temp
+
+echo "num1 : $num1"
+echo "num2 : $num2"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//SWAP2
+
+num1=10
+num2=20
+
+echo "num1 : $num1"
+echo "num2 : $num2"
+echo "====================="
+
+num1=$(($num1*$num2))
+num2=$(($num1/$num2))
+num1=$(($num1/$num2))
+
+echo "num1 : $num1"
+echo "num2 : $num2"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// TBALE
+
+#!/bin/bash
+num=2
+i=1
+
+while [ $i -le 10 ]
+
+do
+
+        echo "$num x $i = $(( num*i ))"
+        i=$(( $i+1 ))
+
+done
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// REVERSE THE NUMBER 
+
+echo  -n "enter any num:"
+
+read num
+
+rev=0
+rem=0
+
+while [ $num != 0 ]
+do
+rem=$(( $num%10 ))
+rev=$(( $rev*10 + $rem ))
+num=$(( $num/10 ))
+done
+echo "revrse is : $rev"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// LEAP YEAR
+
+echo "enter the year"
+read year
+var=`expr $year % 4`
+
+if [ $var -eq 0 ]
+then
+        echo "$year leap year"
+
+else
+        echo "$year is not a leap year"
+
+fi
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//LEAP YEAR 2
+
+echo "enter the year"
+read year
+
+var1=`expr $year % 4`
+var2=`expr $year % 100`
+var3=`expr $year % 400`
+
+if [ $var1 -eq 0 ] && [ $var2 -ne 0 ] || [ $var3 -eq 0 ]
+then
+        echo "$year leap year"
+
+else
+        echo "$year is not a leap year"
+
+fi
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// prime number
+
+echo -n "Enter the n num up to which prime num will print:"
+
+read n
+
+if (( $n==0 || $n==1 ))
+then
+        echo "$n not a prime : enter other than 0 and 1"
+fi
+
+for((i=2;i<=$n;i++))
+do
+        flag=0
+        for((j=2;j<=$i/2;j++))
+        do
+                num=$((i%j))
+
+                if [ $num == 0 ]
+                then
+                        flag=1
+                        break
+                fi
+        done
+
+if [ $flag == 0 ]
+then
+        echo $i
+fi
+done
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+import java.util.*;
+
+class ArmNo
+{
+
+public static void main(String[] args)
+{
+	System.out.print("enter num: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	int count=0,cnt=0,mul=1,rem;
+	int a=num,sum=0;
+
+	while(num!=0)			
+	{
+	 num=num/10;
+	 count++;
+	}
+	cnt=count;
+	num=a;
+	while(num!=0)
+	{
+	  rem=num%10;
+		while(cnt!=0)
+		{
+		 mul = mul *rem;
+		 cnt--;
+		}
+	    num=num/10;
+	   sum = sum+mul;
+	   cnt=count;
+	   mul=1;
+	}
+	if (a==sum){
+	System.out.print(sum +" is an Armstrong num");
+	}
+	else{
+	System.out.print(sum +" is not an Armstrong num");
+	}
+
+	
+} 
+}
+
+
+======================================================
+
+import java.util.Scanner;
+
+class Prime
+{
+	public static void main(String[] args)
+	{
+	 int flag=0;
+	 System.out.print("Enter the num:");
+	 Scanner sc = new Scanner(System.in);
+
+	 int num = sc.nextInt();
+	if(num==0 || num==1)
+	{
+	 System.out.print(num + " is not a prime num");
+	}
+	 for(int i=2;i<=num/2;i++)
+	{
+		if(num%i==0)
+		{
+		 System.out.println(num + " is not a prime num");
+		 flag =1;
+		 break;
+		}
+	}
+	if(flag==0)
+		System.out.println(num + " is a prime num");
+		
+
+}
+}
+
+============================================================
+
+import java.util.*;
+
+class Fabo
+{
+
+public static void main(String[] args)
+{
+	Scanner sc = new Scanner(System.in);
+
+	System.out.print("Enter num1:");
+	int num1 = sc.nextInt();
+	System.out.print("Enter num2:");
+	int num2 = sc.nextInt();
+	System.out.print(num1+" ");
+	System.out.print(num2+" ");
+	int i=0;
+	while(i<=7) 
+	{
+	  
+	  int res=num1+num2;
+	  num1=num2;
+	  num2=res;	   
+	  System.out.print(res+" ");
+	i++;
+	}
+		
+	
+
+	
+} 
+}
+
+================================================================
+
+import java.util.*;
+
+class Fact
+{
+public static void main(String[] args)
+{
+	System.out.println("Enter num:");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt(); 
+	int i=1;
+	int fact=1;
+	while(i<=num)
+	{
+	  fact = fact*i;
+	   i++;
+	}
+	System.out.print("fact is :"+ fact);
+} 
+
+
+}
+=================================================================
+
+import java.util.*;
+
+class Great
+{
+
+public static void main(String[] args)
+{
+	Scanner sc = new Scanner(System.in);
+	System.out.print("Enter num1:");
+	int num1 = sc.nextInt();
+	System.out.print("Enter num2:");
+	int num2 = sc.nextInt(); 
+	System.out.print("Enter num3:");
+	int num3 = sc.nextInt(); 	
+	int gr = (num1<num2) ? ( (num2>num3) ?  num2 : num3 ) : ( (num1>num3) ? num1 : num3 );
+
+	System.out.println("Great is :"+ gr);
+} 
+}
+
+
+
+==============================================================
+
+
+import java.util.*;
+
+class Leap
+{
+
+public static void main(String[] args)
+{
+	System.out.print("enter Year: ");
+	Scanner sc = new Scanner(System.in);
+	int Y = sc.nextInt();
+
+	if (((Y%4==0) && (Y%100!=0)) || (Y%400==0))
+	{
+	 System.out.print("Leap Year: "+ Y ); 
+	
+	}
+	else
+	{ 
+	 System.out.print("NOT Leap Year: "+ Y );
+	}
+} 
+}
+
+
+
+
+
+=====================================================================
+
+import java.util.*;
+
+class Pali
+{
+
+public static void main(String[] args)
+{
+	System.out.print("enter num: ");
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	String s1="";
+	int a=num;
+	while(num!=0)
+	{
+	  int rem = num%10;
+	  s1=s1+rem;  
+	  num=num/10;
+	  
+	}
+	int b=Integer.parseInt(s1);
+	if(a==b)
+		System.out.println(b+ " is Palindrome");
+	else 
+		System.out.println(b+ " is not a Palindrome");
+	
+} 
+}
+
+
+
+============================================================================
+
